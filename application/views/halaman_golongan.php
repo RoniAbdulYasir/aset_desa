@@ -31,7 +31,7 @@
 			<table class="table table-borderes table-striped">
 				<thead>
 					<tr>
-						<th>Kode Barang</th>
+						<th>Kode Golongan</th>
 						<th>Nama Akun</th>
 						<th>Actions</th>
 					</tr>
@@ -39,7 +39,7 @@
 				<tbody>
 					<?php foreach ($query as $row) : ?>
 						<tr>
-							<td><?php echo $row->Akun; ?></td>
+							<td><?php echo $row->KdRek1; ?></td>
 							<td><?php echo $row->Nama_Akun; ?></td>
 							<td></td>
 						</tr>

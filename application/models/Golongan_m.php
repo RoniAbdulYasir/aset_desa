@@ -5,7 +5,7 @@ class Golongan_m extends CI_Model {
 
     public function get(){
 
-		$query =  $this->db->get('ref_rek1'); 
+		$query =  $this->db->get('rek_asset1'); 
 		return $query->result() ;
         
     }
