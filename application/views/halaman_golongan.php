@@ -28,11 +28,11 @@
 			</div>
 		</div>
 		<div class="box body table-responsive">
-			<table class="table table-borderes table-striped">
+			<table id="example1" class="table table-borderes table-striped">
 				<thead>
 					<tr>
 						<th>Kode Golongan</th>
-						<th>Nama Akun</th>
+						<th>Nama Golongan</th>
 						<th>Actions</th>
 					</tr>
 				</thead>
