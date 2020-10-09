@@ -13,7 +13,7 @@ class Golongan extends CI_Controller {
 	{
         
 		//menampilkan views
-		$data['row'] = $this->golongan_m->get();
+		$data['query'] = $this->golongan_m->get();
 		$this->template->load('halaman_template', 'halaman_golongan', $data);
 	}
 }
