@@ -262,7 +262,7 @@
 <!-- AdminLTE for demo purposes -->
 <script src="<?=base_url()?>assets/dist/js/demo.js"></script>
 
- <script>
+<script>
   $(document).ready(function () {
     $("#example1").DataTable({
       "responsive": true,
