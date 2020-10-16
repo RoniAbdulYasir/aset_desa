@@ -14,6 +14,6 @@ class Kelompok extends CI_Controller {
         
 		//menampilkan views
 		$data['query'] = $this->kelompok_m->get();
-		$this->template->load('halaman_template', 'halaman_kelompok', $data);
+		$this->template->load('halaman_template', 'kelompok/halaman_kelompok', $data);
 	}
 }

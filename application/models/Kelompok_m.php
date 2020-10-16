@@ -5,7 +5,9 @@ class Kelompok_m extends CI_Model {
 
     public function get(){
 
-		$query =  $this->db->get('rek_asset3'); 
+		$this->db->from('rek_asset3');
+    $this->db->join('rek_asset2', 'rek_asset2.KdRek2 = rek_asset3.KdRek2');
+    $query = $this->db->get();
 		return $query->result() ;
         
     }

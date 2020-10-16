@@ -5,7 +5,9 @@ class Sub_kelompok_m extends CI_Model {
 
     public function get(){
 
-		$query =  $this->db->get('rek_asset4'); 
+		$this->db->from('rek_asset4');
+    $this->db->join('rek_asset3', 'rek_asset3.KdRek3 = rek_asset4.KdRek3');
+    $query = $this->db->get();
 		return $query->result() ;
         
     }

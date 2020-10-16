@@ -31,18 +31,18 @@
 			<table id="example1" class="table table-borderes table-striped">
 				<thead>
 					<tr>
-						<th>Kode Kecamatan</th>
-            <th>Kode Desa</th>
+						<th>Kode Desa</th>
 						<th>Nama Desa</th>
+            <th>Nama Kecamatan</th>
 						<th>Actions</th>
 					</tr>
 				</thead>
 				<tbody>
 					<?php foreach ($query as $row) : ?>
 						<tr>
-							<td><?php echo $row->Kd_Kec; ?></td>
-              <td><?php echo $row->Kd_Desa; ?></td>
+							<td><?php echo $row->Kd_Desa; ?></td>
 							<td><?php echo $row->Nama_Desa; ?></td>
+              <td><?php echo $row->Nama_Kecamatan; ?></td>
 							<td></td>
 						</tr>
 					<?php endforeach; ?>

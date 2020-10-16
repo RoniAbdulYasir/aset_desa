@@ -14,6 +14,55 @@ class Golongan extends CI_Controller {
         
 		//menampilkan views
 		$data['query'] = $this->golongan_m->get();
-		$this->template->load('halaman_template', 'halaman_golongan', $data);
+		$this->template->load('halaman_template', 'golongan/halaman_golongan', $data);
 	}
+
+	public function detail($KdRek1){
+        $this->load->model('golongan_m');
+        $detail = $this->golongan_m->detail_data($KdRek1);
+        $data['detail'] = $detail;
+        $this->template->load('halaman_template', 'golongan/detail_golongan', $data);
+	}
+	
+	public function tambah_aksi(){
+        $KdRek1 = $this->input->post('KdRek1');
+        $Nama_Akun = $this->input->post('Nama_Akun');
+
+        $data = array(
+            'KdRek1' => $KdRek1,
+            'Nama_Akun' => $Nama_Akun
+            
+        );
+
+        $this->golongan_m->input_data($data, 'rek_asset1');
+        redirect('golongan');
+	}
+	
+	public function hapus ($KdRek1){
+        $where = array ('KdRek1' => $KdRek1);
+        $this->golongan_m->hapus_data($where, 'rek_asset1');
+        redirect ('golongan');
+	}
+	
+	public function edit($KdRek1){
+        $where = array('KdRek1' =>$KdRek1);
+        $data['golongan'] = $this->golongan_m->edit_data($where,'rek_asset1')->result();
+        $this->template->load('halaman_template', 'golongan/edit_golongan', $data);
+	}
+	
+	public function update(){
+        $KdRek1 = $this->input->post('KdRek1');
+        $Nama_Akun = $this->input->post('Nama_Akun');
+
+        $data = array(
+            'KdRek1' => $KdRek1,
+            'Nama_Akun' => $Nama_Akun,
+        );
+
+        $where = array(
+            'KdRek1' => $KdRek1
+        );
+        $this->golongan_m->update_data($where,$data,'rek_asset1');
+        redirect('golongan');
+    }
 }
