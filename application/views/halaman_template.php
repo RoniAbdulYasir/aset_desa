@@ -160,15 +160,15 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="<?=site_url('desa')?>" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Desa</p>
-                </a>
-              </li>
-              <li class="nav-item">
                 <a href="<?=site_url('kecamatan')?>" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Kecamatan</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?=site_url('desa')?>" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Desa</p>
                 </a>
               </li>
             </ul>

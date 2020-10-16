@@ -14,7 +14,7 @@ class Sub_kelompok extends CI_Controller {
         
 		//menampilkan views
 		$data['query'] = $this->sub_kelompok_m->get();
-		$this->template->load('halaman_template', 'halaman_sub_kelompok', $data);
+		$this->template->load('halaman_template', 'sub_kelompok/halaman_sub_kelompok', $data);
 	}
 
 }
