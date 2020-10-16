@@ -75,11 +75,11 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => '.',
+	'hostname' => 'LAPTOP-IH7491DQ\SQL2008',
 	'port' => '1433',
 	'username' => 'sa',
-	'password' => '12345',
-	'database' => 'siskeudes_sragennew',
+	'password' => 'admin123',
+	'database' => 'siskeudes_sragen',
 	'dbdriver' => 'sqlsrv',
 	'dbprefix' => '',
 	'pconnect' => TRUE,
