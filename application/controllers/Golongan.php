@@ -35,13 +35,21 @@ class Golongan extends CI_Controller {
         );
 
         $this->golongan_m->input_data($data, 'rek_asset1');
-        redirect('golongan');
+        if($this->db->affected_rows() > 0){
+                echo "<script>alert('Data Berhasil Disimpan');</script>";
+                
+                }
+                echo "<script>window.location='".site_url('golongan')."';</script>";
 	}
 	
 	public function hapus ($KdRek1){
-        $where = array ('KdRek1' => $KdRek1);
-        $this->golongan_m->hapus_data($where, 'rek_asset1');
-        redirect ('golongan');
+        //$where = array ('KdRek1' => $KdRek1);
+        $this->golongan_m->hapus_data($KdRek1);
+        if($this->db->affected_rows() > 0){
+                echo "<script>alert('Data Berhasil Dihapus');</script>";
+                
+                }
+                echo "<script>window.location='".site_url('golongan')."';</script>";
 	}
 	
 	public function edit($KdRek1){
@@ -63,6 +71,10 @@ class Golongan extends CI_Controller {
             'KdRek1' => $KdRek1
         );
         $this->golongan_m->update_data($where,$data,'rek_asset1');
-        redirect('golongan');
+        if($this->db->affected_rows() > 0){
+                echo "<script>alert('Data Berhasil Diupdate');</script>";
+                
+                }
+                echo "<script>window.location='".site_url('golongan')."';</script>";
     }
 }

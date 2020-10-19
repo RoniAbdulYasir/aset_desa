@@ -119,14 +119,15 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-          <li class="nav-item">
-            <a href="<?=site_url('dashboard')?>" class="nav-link">
+               
+          <li class="nav-item" >
+            <a href="<?=site_url('dashboard')?>" <?=$this->uri->segment(1) == 'dashboard' || $this->uri->segment(1) == '' ? 'class=" nav-link active"' : 'class="nav-link"'?>>
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>Dashboard</p>
             </a>
           </li>
            <li class="nav-item">
-            <a href="<?=site_url('inventarisasi_aset_desa')?>" class="nav-link">
+            <a href="<?=site_url('inventarisasi_aset_desa')?>" <?=$this->uri->segment(1) == 'inventarisasi_aset_desa'  ? 'class=" nav-link active"' : 'class="nav-link"'?>>
             <i class="nav-icon fas fa-pen-square"></i>
               <p>
                 Pendataan Aset Desa
@@ -134,14 +135,14 @@
             </a>
             
               <li class="nav-item">
-                <a href="<?=site_url('riwayat_aset_desa')?>" class="nav-link">
+                <a href="<?=site_url('riwayat_aset_desa')?>" <?=$this->uri->segment(1) == 'riwayat_aset_desa' ? 'class=" nav-link active"' : 'class="nav-link"'?>>
                 <i class="nav-icon fas fa-history"></i>
                   <p>Riwayat Aset Desa</p>
                 </a>
               </li>
 
               <li class="nav-item ">
-            <a href="<?=site_url('laporan_aset_desa')?>" class="nav-link">
+            <a href="<?=site_url('laporan_aset_desa')?>" <?=$this->uri->segment(1) == 'laporan_aset_desa'  ? 'class=" nav-link active"' : 'class="nav-link"'?>>
             <i class="nav-icon far fa-file"></i>
               <p>
                 Laporan Aset Desa
@@ -150,8 +151,8 @@
           </li>
             
           </li>
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
+          <li <?=$this->uri->segment(1) == 'kecamatan' || $this->uri->segment(1) == 'desa'  ? 'class="nav-item has-treeview menu-open"' : 'class="nav-item has-treeview"'?>>
+            <a href="#" <?=$this->uri->segment(1) == 'kecamatan' || $this->uri->segment(1) == 'desa'  ? 'class="nav-link active"' : 'class="nav-link"'?>>
             <i class="nav-icon fas fa-database"></i>
               <p>
                 Master Data
@@ -160,13 +161,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="<?=site_url('kecamatan')?>" class="nav-link">
+                <a href="<?=site_url('kecamatan')?>" <?=$this->uri->segment(1) == 'kecamatan'  ? 'class=" nav-link active"' : 'class="nav-link"'?>>
                   <i class="far fa-circle nav-icon"></i>
                   <p>Kecamatan</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?=site_url('desa')?>" class="nav-link">
+                <a href="<?=site_url('desa')?>" <?=$this->uri->segment(1) == 'desa'  ? 'class=" nav-link active"' : 'class="nav-link"'?>>
                   <i class="far fa-circle nav-icon"></i>
                   <p>Desa</p>
                 </a>
@@ -174,8 +175,8 @@
             </ul>
           </li>
           <!--Master Barang -->
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
+          <li <?=$this->uri->segment(1) == 'golongan' || $this->uri->segment(1) == 'bidang' || $this->uri->segment(1) == 'kelompok' || $this->uri->segment(1) == 'sub_kelompok' ? 'class="nav-item has-treeview menu-open"' : 'class="nav-item has-treeview"'?>>
+            <a href="#" <?=$this->uri->segment(1) == 'golongan' || $this->uri->segment(1) == 'bidang' || $this->uri->segment(1) == 'kelompok' || $this->uri->segment(1) == 'sub_kelompok' ? 'class=" nav-link active"' : 'class="nav-link"'?>>
             <i class="nav-icon fas fa-database"></i>
               <p>
                 Master Kode Barang
@@ -184,25 +185,25 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="<?=site_url('golongan')?>"  class="nav-link">
+                <a href="<?=site_url('golongan')?>"  <?=$this->uri->segment(1) == 'golongan'  ? 'class=" nav-link active"' : 'class="nav-link"'?>>
                   <i class="far fa-circle nav-icon"></i>
                   <p>Golongan</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?=site_url('bidang')?>" class="nav-link">
+                <a href="<?=site_url('bidang')?>" <?=$this->uri->segment(1) == 'bidang'  ? 'class=" nav-link active"' : 'class="nav-link"'?>>
                   <i class="far fa-circle nav-icon"></i>
                   <p>Bidang</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?=site_url('kelompok')?>" class="nav-link">
+                <a href="<?=site_url('kelompok')?>" <?=$this->uri->segment(1) == 'kelompok'  ? 'class=" nav-link active"' : 'class="nav-link"'?>>
                   <i class="far fa-circle nav-icon"></i>
                   <p>Kelompok</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?=site_url('sub_kelompok')?>" class="nav-link">
+                <a href="<?=site_url('sub_kelompok')?>" <?=$this->uri->segment(1) == 'sub_kelompok'  ? 'class=" nav-link active"' : 'class="nav-link"'?>>
                   <i class="far fa-circle nav-icon"></i>
                   <p>Sub Kelompok</p>
                 </a>
@@ -214,7 +215,7 @@
           
           <li class="nav-header">SETTINGS</li>      
           <li class="nav-item">
-            <a href="<?=site_url('user')?>" class="nav-link">
+            <a href="<?=site_url('user')?>" <?=$this->uri->segment(1) == 'user'  ? 'class=" nav-link active"' : 'class="nav-link"'?>>
             <i class="nav-icon fas fa-user"></i>
               <p>User</p>
             </a>

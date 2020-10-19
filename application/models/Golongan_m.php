@@ -19,9 +19,9 @@ class Golongan_m extends CI_Model {
       return $this->db->insert('rek_asset1', $data);
     }
 
-    public function hapus_data($where, $table){
-      $this->db->where($where);
-      $this->db->delete($table);
+    public function hapus_data($KdRek1){
+      $this->db->where('KdRek1', $KdRek1);
+      $this->db->delete('rek_asset1');
     }
 
     public function edit_data($where,$table){
