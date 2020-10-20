@@ -19,7 +19,7 @@
 <section class="content">
 
     <!-- /.col-md-6 -->
-    <div class="col-lg-6">
+   <!-- <div class="col-lg-6">
             <div class="card">
               <div class="card-header border-0">
                 <div class="d-flex justify-content-between">
@@ -40,7 +40,7 @@
                     <span class="text-muted">Since last month</span>
                   </p>
                 </div>
-                <!-- /.d-flex -->
+                
 
                 <div class="position-relative mb-4">
                   <canvas id="sales-chart" height="200"></canvas>
@@ -56,7 +56,7 @@
                   </span>
                 </div>
               </div>
-            </div>
+            </div>-->
             <!-- /.card -->
 
 </section>

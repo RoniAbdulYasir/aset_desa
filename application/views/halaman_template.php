@@ -67,8 +67,8 @@
                 <img src="assets/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
                 <p>
-                  Roni Abdul Yasir
-                  <small>Administrator</small>
+                  Roni Abdul Yasir - Administrator
+                  <small>Pemerintah Desa Keden - Kecamatan Kalijambe</small>
                 </p>
               </li>
               <!-- Menu Footer-->
