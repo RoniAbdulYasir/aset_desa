@@ -3,12 +3,12 @@
 	<div class="container-fluid">
 		<div class="row mb-2">
 			<div class="col-sm-6">
-				<h1>Master Kode Barang -> Bidang Barang</h1>
+				<h1>Master Data -> Desa</h1>
 			</div>
 			<div class="col-sm-6">
 				<ol class="breadcrumb float-sm-right">
 					<li class="breadcrumb-item"><a href="<?=site_url('dashboard')?>">Home</a></li>
-					<li class="breadcrumb-item active">Bidang</li>
+					<li class="breadcrumb-item active">Desa</li>
 				</ol>
 			</div>
 		</div>
@@ -19,22 +19,22 @@
 <section class="content">
 
 	<div class="box">
-    <h4><strong>DETAIL BIDANG BARANG</strong></h4>
+    <h4><strong>DETAIL DESA</strong></h4>
         <table class="table">
             <tr>
-                <th>Kode Bidang</th>
-                <td><?php echo $detail->Kd_Desa?></td>
+                <th>Kode Desa</th>
+                <td><?php echo $detail->Kd_Desa ?></td>
             </tr>
             <tr>
-                <th>Nama Bidang</th>
-                <td><?php echo $detail->Nama_Desa?></td>
+                <th>Nama Desa</th>
+                <td><?php echo $detail->Nama_Desa ?></td>
             </tr>
             <tr>
-                <th>Nama Golongan</th>
-                <td><?php echo $detail->Kd_Kec?></td>
+                <th>Nama Kecamatan</th>
+                <td><?php echo $detail->Kd_Kec ?></td>
             </tr>
         </table>
-        <a href="<?php echo base_url('bidang');?>" class="btn btn-primary">Kembali</a>
+        <a href="<?php echo base_url('desa');?>" class="btn btn-primary">Kembali</a>
     
 	</div>
 

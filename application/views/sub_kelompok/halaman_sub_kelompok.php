@@ -41,9 +41,9 @@
 							<td><?php echo $row->KdRek4; ?></td>
 							<td><?php echo $row->Nama_Obyek; ?></td>
 							<td><?php echo $row->Nama_Jenis; ?></td>
-							<td><?php echo anchor('golongan/detail/'.$row->KdRek4,'<div class="btn btn-success btn-sm" data-toggle="modal" data-target="#exampleModal"><i class="nav-icon fas fa-info-circle"></i></div>')?>
-        					<?php echo anchor('golongan/edit/'.$row->KdRek4,'<div class="btn btn-danger btn-sm"><i class="nav-icon fas fa-edit"></i></div>')?>
-        					<a onclick="return confirm('Anda Yakin Hapus ?')"<?php echo anchor('golongan/hapus/'.$row->KdRek4,'<div class="btn btn-danger btn-sm"><i class="nav-icon far fa-trash-alt"></i></div>') ?></td>
+							<td><?php echo anchor('sub_kelompok/detail/'.$row->KdRek4,'<div class="btn btn-success btn-sm" data-toggle="modal" data-target="#exampleModal"><i class="nav-icon fas fa-info-circle"></i></div>')?>
+        					<?php echo anchor('sub_kelompok/edit/'.$row->KdRek4,'<div class="btn btn-danger btn-sm"><i class="nav-icon fas fa-edit"></i></div>')?>
+        					<a onclick="return confirm('Anda Yakin Hapus ?')"<?php echo anchor('sub_kelompok/hapus/'.$row->KdRek4,'<div class="btn btn-danger btn-sm"><i class="nav-icon far fa-trash-alt"></i></div>') ?></td>
 						</tr>
 					<?php endforeach; ?>
 				</tbody>
@@ -53,3 +53,44 @@
 
 </section>
     <!-- /.content -->
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="exampleModalLabel">Form Input Data Sub Kelompok Barang</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <?php echo form_open_multipart('sub_kelompok/tambah_aksi'); ?> 
+
+            <div class="form-group">
+                <label>Kode Sub Kelompok</label><input type="text" name="KdRek4" class="form-control">
+            </div>
+            <div class="form-group">
+                <label>Nama Sub Kelompok</label><input type="text" name="Nama_Obyek" class="form-control">
+            </div>
+			<!--<div class="form-group">
+                        <label>Select</label>
+                        <select class="form-control">
+                          <option>option 1</option>
+                          <option>option 2</option>
+                          <option>option 3</option>
+                          <option>option 4</option>
+                          <option>option 5</option>
+                        </select>
+                </div>-->
+			<div class="form-group">
+                <label>Nama Kelompok</label><input type="text" name="KdRek3" class="form-control">
+            </div>
+            <button type="reset" class="btn btn-danger" data-dismiss="modal">Reset</button>
+            <button type="submit" class="btn btn-primary">Simpan</button>
+          <?php echo form_close(); ?>
+      </div>
+      
+    </div>
+  </div>
+</div>
