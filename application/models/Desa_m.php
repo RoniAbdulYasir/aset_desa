@@ -7,7 +7,7 @@ class Desa_m extends CI_Model {
 
         $this->db->from('ref_desa');
         $this->db->join('ref_kecamatan', 'ref_kecamatan.Kd_Kec = ref_desa.Kd_Kec');
-        $query =   $this->db->get();
+        $query = $this->db->get();
 		return $query->result() ;
         
     }

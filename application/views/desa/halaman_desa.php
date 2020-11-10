@@ -73,18 +73,16 @@
             <div class="form-group">
                 <label>Nama Desa</label><input type="text" name="Nama_Desa" class="form-control">
             </div>
-			<!--<div class="form-group">
-                        <label>Select</label>
-                        <select class="form-control">
-                          <option>option 1</option>
-                          <option>option 2</option>
-                          <option>option 3</option>
-                          <option>option 4</option>
-                          <option>option 5</option>
-                        </select>
-                </div>-->
 			<div class="form-group">
-                <label>Nama Kecamatan</label><input type="text" name="Kd_Kec" class="form-control">
+				<label>Nama Kecamatan</label>
+				<select name="Kd_Kec" class="form-control">
+					<option value="">- Pilih Nama Kecamatan - </option>
+					<?php foreach ($query as $row) : ?>
+						<option value="<?=$row->Kd_Kec ;?>"></option>
+					<?php endforeach; ?>
+					
+				</select>
+                <!--<label>Nama Kecamatan</label><input type="text" name="Kd_Kec" class="form-control">-->
             </div>
             <button type="reset" class="btn btn-danger" data-dismiss="modal">Reset</button>
             <button type="submit" class="btn btn-primary">Simpan</button>

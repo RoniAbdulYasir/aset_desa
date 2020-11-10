@@ -18,6 +18,9 @@
   <link rel="stylesheet" href="<?=base_url()?>assets/dist/css/adminlte.min.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+
+
 </head>
 <body class="hold-transition sidebar-mini">
 <!-- Site wrapper -->
@@ -37,18 +40,6 @@
       </li>
     </ul>
 
-    <!-- SEARCH FORM -->
-   <!-- <form class="form-inline ml-3">
-      <div class="input-group input-group-sm">
-        <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
-        <div class="input-group-append">
-          <button class="btn btn-navbar" type="submit">
-            <i class="fas fa-search"></i>
-          </button>
-        </div>
-      </div>
-    </form>-->
-
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
       <!-- Messages Dropdown Menu -->
@@ -58,17 +49,33 @@
       <!-- User Account: style can be found in dropdown.less -->
       <li class="dropdown user user-menu">
             <a class="nav-link" data-toggle="dropdown" href="#">
-              <img src="assets/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-              <span class="hidden-xs">Administrator</span>
+              <?php if($this->session->userdata('Level') == 1) { ?>
+              <img src="assets/dist/img/avatar5.png" class="user-image" alt="User Image">
+              <?php } ?> 
+              <?php if($this->session->userdata('Level') == 2) { ?>
+              <img src="assets/dist/img/avatar.png" class="user-image" alt="User Image">
+              <?php } ?> 
+              <?php if($this->session->userdata('Level') == 3) { ?>
+              <img src="assets/dist/img/avatar04.png" class="user-image" alt="User Image">
+              <?php } ?> 
+              <span class="hidden-xs"><?=$this->fungsi->user_login()->Keterangan?></span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
-                <img src="assets/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                <?php if($this->session->userdata('Level') == 1) { ?>
+                <img src="assets/dist/img/avatar5.png" class="img-circle" alt="User Image">
+                <?php } ?> 
+                <?php if($this->session->userdata('Level') == 2) { ?>
+                <img src="assets/dist/img/avatar.png" class="img-circle" alt="User Image">
+                <?php } ?> 
+                <?php if($this->session->userdata('Level') == 3) { ?>
+                <img src="assets/dist/img/avatar04.png" class="img-circle" alt="User Image">
+                <?php } ?> 
 
                 <p>
-                  Roni Abdul Yasir - Administrator
-                  <small>Pemerintah Desa Keden - Kecamatan Kalijambe</small>
+                <?=$this->fungsi->user_login()->Nama?> - <?=$this->fungsi->user_login()->Keterangan?>
+                  <small><?=$this->fungsi->user_login()->Nama_Desa?> - <?=$this->fungsi->user_login()->Nama_Kecamatan?></small>
                 </p>
               </li>
               <!-- Menu Footer-->
@@ -77,7 +84,7 @@
                   <a href="#" class="btn btn-default btn-flat">Profile</a>
                 </div>
                 <div class="float-right">
-                  <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                  <a href="<?=site_url('auth/logout')?>" class="btn btn-default btn-flat">Logout</a>
                 </div>
               </li>
             </ul>
@@ -107,10 +114,18 @@
       <!-- Sidebar user (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="<?=base_url()?>assets/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+          <?php if($this->session->userdata('Level') == 1) { ?>
+          <img src="<?=base_url()?>assets/dist/img/avatar5.png" class="img-circle elevation-2" alt="User Image">
+          <?php } ?> 
+          <?php if($this->session->userdata('Level') == 2) { ?>
+          <img src="<?=base_url()?>assets/dist/img/avatar.png" class="img-circle elevation-2" alt="User Image">
+          <?php } ?> 
+          <?php if($this->session->userdata('Level') == 3) { ?>
+          <img src="<?=base_url()?>assets/dist/img/avatar04.png" class="img-circle elevation-2" alt="User Image">
+          <?php } ?> 
         </div>
         <div class="info">
-          <a href="#" class="d-block">Administrator</a>
+          <a href="#" class="d-block"><?=$this->fungsi->user_login()->Keterangan?></a>
         </div>
       </div>
 
@@ -127,7 +142,7 @@
             </a>
           </li>
            <li class="nav-item">
-            <a href="<?=site_url('inventarisasi_aset_desa')?>" <?=$this->uri->segment(1) == 'inventarisasi_aset_desa'  ? 'class=" nav-link active"' : 'class="nav-link"'?>>
+            <a href="<?=site_url('pendataan_aset_desa')?>" <?=$this->uri->segment(1) == 'pendataan_aset_desa'  ? 'class=" nav-link active"' : 'class="nav-link"'?>>
             <i class="nav-icon fas fa-pen-square"></i>
               <p>
                 Pendataan Aset Desa
@@ -151,6 +166,9 @@
           </li>
             
           </li>
+
+          <!--Master Data -->
+          <?php if($this->session->userdata('Level') == 1) { ?>
           <li <?=$this->uri->segment(1) == 'kecamatan' || $this->uri->segment(1) == 'desa'  ? 'class="nav-item has-treeview menu-open"' : 'class="nav-item has-treeview"'?>>
             <a href="#" <?=$this->uri->segment(1) == 'kecamatan' || $this->uri->segment(1) == 'desa'  ? 'class="nav-link active"' : 'class="nav-link"'?>>
             <i class="nav-icon fas fa-database"></i>
@@ -174,9 +192,11 @@
               </li>
             </ul>
           </li>
+          <?php } ?> 
           <!--Master Barang -->
-          <li <?=$this->uri->segment(1) == 'golongan' || $this->uri->segment(1) == 'bidang' || $this->uri->segment(1) == 'kelompok' || $this->uri->segment(1) == 'sub_kelompok' ? 'class="nav-item has-treeview menu-open"' : 'class="nav-item has-treeview"'?>>
-            <a href="#" <?=$this->uri->segment(1) == 'golongan' || $this->uri->segment(1) == 'bidang' || $this->uri->segment(1) == 'kelompok' || $this->uri->segment(1) == 'sub_kelompok' ? 'class=" nav-link active"' : 'class="nav-link"'?>>
+          <?php if($this->session->userdata('Level') == 1) { ?>
+          <li <?=$this->uri->segment(1) == 'golongan' || $this->uri->segment(1) == 'bidang' || $this->uri->segment(1) == 'kelompok' || $this->uri->segment(1) == 'sub_kelompok' || $this->uri->segment(1) == 'rincian_sub_kelompok' ? 'class="nav-item has-treeview menu-open"' : 'class="nav-item has-treeview"'?>>
+            <a href="#" <?=$this->uri->segment(1) == 'golongan' || $this->uri->segment(1) == 'bidang' || $this->uri->segment(1) == 'kelompok' || $this->uri->segment(1) == 'sub_kelompok' | $this->uri->segment(1) == 'rincian_sub_kelompok' ? 'class=" nav-link active"' : 'class="nav-link"'?>>
             <i class="nav-icon fas fa-database"></i>
               <p>
                 Master Kode Barang
@@ -208,18 +228,26 @@
                   <p>Sub Kelompok</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="<?=site_url('rincian_sub_kelompok')?>" <?=$this->uri->segment(1) == 'rincian_sub_kelompok'  ? 'class=" nav-link active"' : 'class="nav-link"'?>>
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Rincian Sub Kelompok</p>
+                </a>
+              </li>
             </ul>
           </li>
+          <?php } ?> 
           
           
-          
+          <?php if($this->session->userdata('Level') == 1) { ?>
           <li class="nav-header">SETTINGS</li>      
           <li class="nav-item">
             <a href="<?=site_url('user')?>" <?=$this->uri->segment(1) == 'user'  ? 'class=" nav-link active"' : 'class="nav-link"'?>>
             <i class="nav-icon fas fa-user"></i>
               <p>User</p>
             </a>
-          </li>        
+          </li>
+          <?php } ?>        
           
         </ul>
       </nav>

@@ -21,11 +21,13 @@ class Desa extends CI_Controller {
         $Kd_Desa = $this->input->post('Kd_Desa');
 		$Nama_Desa = $this->input->post('Nama_Desa');
 		$Kd_Kec = $this->input->post('Kd_Kec');
+		//$Kecamatan= $this->kecamatan_m->get();
 
         $data = array(
             'Kd_Desa' => $Kd_Desa,
 			'Nama_Desa' => $Nama_Desa,
-			'Kd_Kec' => $Kd_Kec
+			'Kd_Kec' => $Kd_Kec,
+			//'Kecamatan' => $Kecamatan
             
 		);
 		$this->desa_m->input_data($data, 'ref_desa');

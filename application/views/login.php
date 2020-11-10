@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 3 | Log in</title>
+  <title>Aset Desa | Log in</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -22,24 +22,24 @@
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href="<?=base_url()?>assets/index2.html"><b>MyPos</b></a>
+    <a href="<?=base_url()?>assets/index2.html"><b>Aset Desa</b></a>
   </div>
   <!-- /.login-logo -->
   <div class="card">
     <div class="card-body login-card-body">
       <p class="login-box-msg">Sign in to start your session</p>
 
-      <form action="<?=base_url()?>assets/index3.html" method="post">
+      <form action="<?=site_url('auth/process')?>" method="post">
         <div class="input-group mb-3">
-          <input type="email" class="form-control" placeholder="Email">
+          <input type="Username" name="Username" class="form-control" placeholder="Username" required>
           <div class="input-group-append">
             <div class="input-group-text">
-              <span class="fas fa-envelope"></span>
+              <span class="fas fa-user"></span>
             </div>
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="Password">
+          <input type="Password" name="Password" class="form-control" placeholder="Password" required>
           <div class="input-group-append">
             <div class="input-group-text">
                 <span class="fas fa-lock"></span>
@@ -48,16 +48,16 @@
         </div>
         <div class="row">
           <div class="col-8">
-            <!--<div class="icheck-primary">
+            <div class="icheck-primary">
               <input type="checkbox" id="remember">
               <label for="remember">
                 Remember Me
               </label>
-            </div>-->
+            </div>
           </div>
           <!-- /.col -->
           <div class="col-4">
-            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+            <button type="submit" name="login" class="btn btn-primary btn-block">Login</button>
           </div>
           <!-- /.col -->
         </div>
