@@ -22,7 +22,10 @@ class Auth extends CI_Controller {
 					'IDUser' => $row->IDUser,
 					'Level' => $row->Level,
 					'Nama_Kecamatan' => $row->Nama_Kecamatan,
+					'Kd_Kec' => $row->Kd_Kec,
 					'Nama_Desa' => $row->Nama_Desa,
+					'Kd_Desa' => $row->Kd_Desa,
+					'Nama' => $row->Nama,
 				);
 				$this->session->set_userdata($params);
 				echo "<script>

@@ -20,12 +20,12 @@ class Kelompok extends CI_Controller {
 	public function tambah_aksi(){
         $KdRek3 = $this->input->post('KdRek3');
 		$Nama_Jenis = $this->input->post('Nama_Jenis');
-		$KdRek2 = $this->input->post('KdRek2');
+		$KdRek2_FK = $this->input->post('KdRek2_FK');
 
         $data = array(
             'KdRek3' => $KdRek3,
 			'Nama_Jenis' => $Nama_Jenis,
-			'KdRek2' => $KdRek2
+			'KdRek2_FK' => $KdRek2_FK
             
 		);
 		$this->kelompok_m->input_data($data, 'rek_asset3');
@@ -52,12 +52,12 @@ class Kelompok extends CI_Controller {
 	public function update(){
         $KdRek3 = $this->input->post('KdRek3');
 		$Nama_Jenis = $this->input->post('Nama_Jenis');
-		$KdRek2 = $this->input->post('KdRek2');
+		$KdRek2_FK = $this->input->post('KdRek2_FK');
 
         $data = array(
             'KdRek3' => $KdRek3,
 			'Nama_Jenis' => $Nama_Jenis,
-			'KdRek2' => $KdRek2
+			'KdRek2_FK' => $KdRek2_FK
         );
 
         $where = array(

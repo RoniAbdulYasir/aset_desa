@@ -32,7 +32,7 @@
     </div>
     <div class="form-group">    
     <label>Nama Kelompok</lebal>
-    <input type="text" name="KdRek3" class="form-control" value="<?php echo $sklp->KdRek3 ?>">
+    <input type="text" name="KdRek3_FK" class="form-control" value="<?php echo $sklp->KdRek3_FK ?>">
     </div>
     <a href="<?php echo base_url('sub_kelompok');?>" class="btn btn-danger">Kembali</a>
     <button type="submit" class="btn btn-primary">Simpan</button>

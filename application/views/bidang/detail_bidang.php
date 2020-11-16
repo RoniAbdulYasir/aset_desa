@@ -23,15 +23,15 @@
         <table class="table">
             <tr>
                 <th>Kode Bidang</th>
-                <td><?php echo $detail->Kd_Desa?></td>
+                <td><?php echo $detail->KdRek2?></td>
             </tr>
             <tr>
                 <th>Nama Bidang</th>
-                <td><?php echo $detail->Nama_Desa?></td>
+                <td><?php echo $detail->Nama_Kelompok?></td>
             </tr>
             <tr>
                 <th>Nama Golongan</th>
-                <td><?php echo $detail->Kd_Kec?></td>
+                <td><?php echo $detail->Nama_Akun?></td>
             </tr>
         </table>
         <a href="<?php echo base_url('bidang');?>" class="btn btn-primary">Kembali</a>

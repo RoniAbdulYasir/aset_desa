@@ -65,7 +65,7 @@
         </button>
       </div>
       <div class="modal-body">
-          <?php echo form_open_multipart('sub_kelompok/tambah_aksi'); ?> 
+          <?php echo form_open_multipart('rincian_sub_kelompok/tambah_aksi'); ?> 
 
             <div class="form-group">
                 <label>Kode Rincian Sub Kelompok</label><input type="text" name="KdRek5" class="form-control">
@@ -73,18 +73,8 @@
             <div class="form-group">
                 <label>Nama Rincian Sub Kelompok</label><input type="text" name="Nama_Rincian" class="form-control">
             </div>
-			<!--<div class="form-group">
-                        <label>Select</label>
-                        <select class="form-control">
-                          <option>option 1</option>
-                          <option>option 2</option>
-                          <option>option 3</option>
-                          <option>option 4</option>
-                          <option>option 5</option>
-                        </select>
-                </div>-->
 			<div class="form-group">
-                <label>Nama Sub Kelompok</label><input type="text" name="KdRek4" class="form-control">
+                <label>Nama Sub Kelompok</label><input type="text" name="KdRek4_FK" class="form-control">
             </div>
             <button type="reset" class="btn btn-danger" data-dismiss="modal">Reset</button>
             <button type="submit" class="btn btn-primary">Simpan</button>

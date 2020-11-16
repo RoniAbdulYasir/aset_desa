@@ -19,6 +19,8 @@
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
+
 
 
 </head>
@@ -50,13 +52,13 @@
       <li class="dropdown user user-menu">
             <a class="nav-link" data-toggle="dropdown" href="#">
               <?php if($this->session->userdata('Level') == 1) { ?>
-              <img src="assets/dist/img/avatar5.png" class="user-image" alt="User Image">
+              <img src="<?=base_url()?>assets/dist/img/avatar5.png" class="user-image" alt="User Image">
               <?php } ?> 
               <?php if($this->session->userdata('Level') == 2) { ?>
-              <img src="assets/dist/img/avatar.png" class="user-image" alt="User Image">
+              <img src="<?=base_url()?>assets/dist/img/avatar.png" class="user-image" alt="User Image">
               <?php } ?> 
               <?php if($this->session->userdata('Level') == 3) { ?>
-              <img src="assets/dist/img/avatar04.png" class="user-image" alt="User Image">
+              <img src="<?=base_url()?>assets/dist/img/avatar04.png" class="user-image" alt="User Image">
               <?php } ?> 
               <span class="hidden-xs"><?=$this->fungsi->user_login()->Keterangan?></span>
             </a>
@@ -64,13 +66,13 @@
               <!-- User image -->
               <li class="user-header">
                 <?php if($this->session->userdata('Level') == 1) { ?>
-                <img src="assets/dist/img/avatar5.png" class="img-circle" alt="User Image">
+                <img src="<?=base_url()?>assets/dist/img/avatar5.png" class="img-circle" alt="User Image">
                 <?php } ?> 
                 <?php if($this->session->userdata('Level') == 2) { ?>
-                <img src="assets/dist/img/avatar.png" class="img-circle" alt="User Image">
+                <img src="<?=base_url()?>assets/dist/img/avatar.png" class="img-circle" alt="User Image">
                 <?php } ?> 
                 <?php if($this->session->userdata('Level') == 3) { ?>
-                <img src="assets/dist/img/avatar04.png" class="img-circle" alt="User Image">
+                <img src="<?=base_url()?>assets/dist/img/avatar04.png" class="img-circle" alt="User Image">
                 <?php } ?> 
 
                 <p>
@@ -142,30 +144,52 @@
             </a>
           </li>
            <li class="nav-item">
-            <a href="<?=site_url('pendataan_aset_desa')?>" <?=$this->uri->segment(1) == 'pendataan_aset_desa'  ? 'class=" nav-link active"' : 'class="nav-link"'?>>
-            <i class="nav-icon fas fa-pen-square"></i>
-              <p>
-                Pendataan Aset Desa
-              </p>
-            </a>
-            
-              <li class="nav-item">
+              <a href="<?=site_url('pendataan_aset_desa')?>" <?=$this->uri->segment(1) == 'pendataan_aset_desa'  ? 'class=" nav-link active"' : 'class="nav-link"'?>>
+              <i class="nav-icon fas fa-pen-square"></i>
+                <p>Pendataan Aset Desa</p>
+              </a>
+           </li>
+            <li class="nav-item">
                 <a href="<?=site_url('riwayat_aset_desa')?>" <?=$this->uri->segment(1) == 'riwayat_aset_desa' ? 'class=" nav-link active"' : 'class="nav-link"'?>>
                 <i class="nav-icon fas fa-history"></i>
                   <p>Riwayat Aset Desa</p>
                 </a>
-              </li>
+            </li>
 
-              <li class="nav-item ">
-            <a href="<?=site_url('laporan_aset_desa')?>" <?=$this->uri->segment(1) == 'laporan_aset_desa'  ? 'class=" nav-link active"' : 'class="nav-link"'?>>
-            <i class="nav-icon far fa-file"></i>
-              <p>
-                Laporan Aset Desa
-               </p>
-            </a>
-          </li>
+            <li class="nav-item ">
+                <a href="<?=site_url('laporan_aset_desa')?>" <?=$this->uri->segment(1) == 'laporan_aset_desa'  ? 'class=" nav-link active"' : 'class="nav-link"'?>>
+                <i class="nav-icon far fa-file"></i>
+                  <p>
+                    Laporan Aset Desa
+                  </p>
+                </a>
+            </li>
+            <!--<li class="nav-item ">
+                <a href="<?=site_url('asal_aset')?>" <?=$this->uri->segment(1) == 'asal_aset'  ? 'class=" nav-link active"' : 'class="nav-link"'?>>
+                <i class="nav-icon far fa-file"></i>
+                  <p>
+                    Asal Aset
+                  </p>
+                </a>
+            </li>
+            <li class="nav-item ">
+                <a href="<?=site_url('status_aset')?>" <?=$this->uri->segment(1) == 'status_aset'  ? 'class=" nav-link active"' : 'class="nav-link"'?>>
+                <i class="nav-icon far fa-file"></i>
+                  <p>
+                    Status Aset
+                  </p>
+                </a>
+            </li>
+            <li class="nav-item ">
+                <a href="<?=site_url('kondisi_aset')?>" <?=$this->uri->segment(1) == 'kondisi'  ? 'class=" nav-link active"' : 'class="nav-link"'?>>
+                <i class="nav-icon far fa-file"></i>
+                  <p>
+                    Kondisi Aset
+                  </p>
+                </a>
+            </li>-->
             
-          </li>
+          
 
           <!--Master Data -->
           <?php if($this->session->userdata('Level') == 1) { ?>
@@ -291,21 +315,74 @@
 <!-- AdminLTE for demo purposes -->
 <script src="<?=base_url()?>assets/dist/js/demo.js"></script>
 
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+
 <script>
   $(document).ready(function () {
-    $("#example1").DataTable({
-      "responsive": true,
-      "autoWidth": false,
-    });
-    $('#example2').DataTable({
+    $('#example1').DataTable({
       "paging": true,
-      "lengthChange": false,
-      "searching": false,
+      "lengthChange": true,
+      "searching": true,
       "ordering": true,
       "info": true,
       "autoWidth": false,
       "responsive": true,
     });
+    $('#example2').DataTable({
+      "paging": true,
+      "lengthChange": true,
+      "searching": true,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+      "responsive": true,
+    });
+    $('#example3').DataTable({
+      "paging": true,
+      "lengthChange": true,
+      "searching": true,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+      "responsive": true,
+    });
+    $('#example4').DataTable({
+      "paging": true,
+      "lengthChange": true,
+      "searching": true,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+      "responsive": true,
+    });
+    $('#example5').DataTable({
+      "paging": true,
+      "lengthChange": true,
+      "searching": true,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+      "responsive": true,
+    });
+    $('#example6').DataTable({
+      "paging": true,
+      "lengthChange": true,
+      "searching": true,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+      "responsive": true,
+    });
+    $('#example7').DataTable({
+      "paging": true,
+      "lengthChange": true,
+      "searching": true,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+      "responsive": true,
+    });
+
   });
 </script>
 </body>

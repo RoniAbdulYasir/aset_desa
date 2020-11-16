@@ -38,8 +38,8 @@
                   <div class="active tab-pane" id="tanah">
                     <div class="box_header">
                       <div class="pull-right">
-                        <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                        <i class="fas fa-plus-square"></i>Tambah Tanah</button>
+                      <a href="<?=site_url('pendataan_aset_desa/add/tanah')?>" button class="btn btn-primary">
+				                  <i class="fas fa-plus-square"></i>Tambah Tanah</button></a>
                       </div>
                     </div>
                     <div class="box-body table-responsive">
@@ -48,30 +48,28 @@
                         <tr>
                           <th>Tahun</th>
                           <th>Nama Desa</th>
+                          <th>Kode Brg</th>
                           <th>Nama Barang</th>
                           <th>Kuantitas</th>
                           <th>Satuan</th>
                           <th>Harga Satuan</th>
                           <th>Nilai</th>
                           <th>Asal</th>
-                          <th>Status</th>
-                          <th>Kondisi</th>
                           <th>Actions</th>
                         </tr>
                       </thead>
                       <tbody>
-                        <?php foreach ($query as $row) : ?>
+                        <?php foreach ($query1 as $row) : ?>
                           <tr>
                             <td><?php echo $row->Tahun; ?></td>
                             <td><?php echo $row->Nama_Desa; ?></td>
+                            <td><?php echo $row->KdRek5; ?></td>
                             <td><?php echo $row->Nama_Rincian; ?></td>
                             <td><?php echo $row->Kuantitas; ?></td>
                             <td><?php echo $row->Satuan; ?></td>
                             <td><?php echo $row->Hrg_Satuan; ?></td>
                             <td><?php echo $row->Nilai; ?></td>
-                            <td><?php echo $row->Asal_Aset; ?></td>
-                            <td><?php echo $row->Status_Aset; ?></td>
-                            <td><?php echo $row->Kondisi; ?></td>
+                            <td><?php echo $row->AsalAset; ?></td>
                             <td><?php echo anchor('pendataan_aset_desa/detail/'.$row->IdTran,'<div class="btn btn-success btn-sm" data-toggle="modal" data-target="#exampleModal"><i class="nav-icon fas fa-info-circle"></i></div>')?>
                                 <?php echo anchor('pendataan_aset_desa/edit/'.$row->IdTran,'<div class="btn btn-danger btn-sm"><i class="nav-icon fas fa-edit"></i></div>')?>
                                 <a onclick="return confirm('Anda Yakin Hapus ?')"<?php echo anchor('pendataan_aset_desa/hapus/'.$row->IdTran,'<div class="btn btn-danger btn-sm"><i class="nav-icon far fa-trash-alt"></i></div>') ?></td>
@@ -84,56 +82,272 @@
                   <!-- /.tab-pane -->
                   <div class="tab-pane" id="peralatandanmesin">
                     <div class="box_header">
-                      <div class="pull-right">
-                        <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                        <i class="fas fa-plus-square"></i>Tambah Peralatan dan Mesin</button>
+                        <div class="pull-right">
+                        <a href="<?=site_url('pendataan_aset_desa/add/peralatandanmesin')?>" button class="btn btn-primary">
+                            <i class="fas fa-plus-square"></i>Tambah Peralatan dan Mesin</button></a>
+                        </div>
                       </div>
+                      <div class="box-body table-responsive">
+                      <table id="example2" class="table table-borderes table-striped">
+                        <thead>
+                          <tr>
+                            <th>Tahun</th>
+                            <th>Nama Desa</th>
+                            <th>Kode Brg</th>
+                            <th>Nama Barang</th>
+                            <th>Kuantitas</th>
+                            <th>Satuan</th>
+                            <th>Harga Satuan</th>
+                            <th>Nilai</th>
+                            <th>Asal</th>
+                            <th>Actions</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <?php foreach ($query2 as $row) : ?>
+                            <tr>
+                              <td><?php echo $row->Tahun; ?></td>
+                              <td><?php echo $row->Nama_Desa; ?></td>
+                              <td><?php echo $row->KdRek5; ?></td>
+                              <td><?php echo $row->Nama_Rincian; ?></td>
+                              <td><?php echo $row->Kuantitas; ?></td>
+                              <td><?php echo $row->Satuan; ?></td>
+                              <td><?php echo $row->Hrg_Satuan; ?></td>
+                              <td><?php echo $row->Nilai; ?></td>
+                              <td><?php echo $row->AsalAset; ?></td>
+                              <td><?php echo anchor('pendataan_aset_desa/detail/'.$row->IdTran,'<div class="btn btn-success btn-sm" data-toggle="modal" data-target="#exampleModal"><i class="nav-icon fas fa-info-circle"></i></div>')?>
+                                  <?php echo anchor('pendataan_aset_desa/edit/'.$row->IdTran,'<div class="btn btn-danger btn-sm"><i class="nav-icon fas fa-edit"></i></div>')?>
+                                  <a onclick="return confirm('Anda Yakin Hapus ?')"<?php echo anchor('pendataan_aset_desa/hapus/'.$row->IdTran,'<div class="btn btn-danger btn-sm"><i class="nav-icon far fa-trash-alt"></i></div>') ?></td>
+                            </tr>
+                          <?php endforeach; ?>
+                        </tbody>
+                      </table>
                     </div>
                   </div>
                   <!-- /.tab-pane -->
                   <div class="tab-pane" id="gedungdanbangunan">
                     <div class="box_header">
-                      <div class="pull-right">
-                        <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                        <i class="fas fa-plus-square"></i>Tambah Gedung dan Bangunan</button>
+                        <div class="pull-right">
+                        <a href="<?=site_url('pendataan_aset_desa/add/gedungdanbangunan')?>" button class="btn btn-primary">
+                            <i class="fas fa-plus-square"></i>Tambah Gedung dan Bangunan</button></a>
+                        </div>
                       </div>
+                      <div class="box-body table-responsive">
+                      <table id="example3" class="table table-borderes table-striped">
+                        <thead>
+                          <tr>
+                            <th>Tahun</th>
+                            <th>Nama Desa</th>
+                            <th>Kode Brg</th>
+                            <th>Nama Barang</th>
+                            <th>Kuantitas</th>
+                            <th>Satuan</th>
+                            <th>Harga Satuan</th>
+                            <th>Nilai</th>
+                            <th>Asal</th>
+                            <th>Actions</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <?php foreach ($query3 as $row) : ?>
+                            <tr>
+                              <td><?php echo $row->Tahun; ?></td>
+                              <td><?php echo $row->Nama_Desa; ?></td>
+                              <td><?php echo $row->KdRek5; ?></td>
+                              <td><?php echo $row->Nama_Rincian; ?></td>
+                              <td><?php echo $row->Kuantitas; ?></td>
+                              <td><?php echo $row->Satuan; ?></td>
+                              <td><?php echo $row->Hrg_Satuan; ?></td>
+                              <td><?php echo $row->Nilai; ?></td>
+                              <td><?php echo $row->AsalAset; ?></td>
+                              <td><?php echo anchor('pendataan_aset_desa/detail/'.$row->IdTran,'<div class="btn btn-success btn-sm" data-toggle="modal" data-target="#exampleModal"><i class="nav-icon fas fa-info-circle"></i></div>')?>
+                                  <?php echo anchor('pendataan_aset_desa/edit/'.$row->IdTran,'<div class="btn btn-danger btn-sm"><i class="nav-icon fas fa-edit"></i></div>')?>
+                                  <a onclick="return confirm('Anda Yakin Hapus ?')"<?php echo anchor('pendataan_aset_desa/hapus/'.$row->IdTran,'<div class="btn btn-danger btn-sm"><i class="nav-icon far fa-trash-alt"></i></div>')?></a></td>
+                            </tr>
+                          <?php endforeach; ?>
+                        </tbody>
+                      </table>
                     </div>
                   </div>
                   <!-- /.tab-pane -->
                   <div class="tab-pane" id="jalanirigasidanjaringan">
                     <div class="box_header">
-                      <div class="pull-right">
-                        <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                        <i class="fas fa-plus-square"></i>Tambah Jalan Irigasi dan Jaringan</button>
+                        <div class="pull-right">
+                        <a href="<?=site_url('pendataan_aset_desa/add/jalanirigasidanjaringan')?>" button class="btn btn-primary">
+                            <i class="fas fa-plus-square"></i>Tambah Jalan, Irigasi dan Jaringan</button></a>
+                        </div>
                       </div>
+                      <div class="box-body table-responsive">
+                      <table id="example4" class="table table-borderes table-striped">
+                        <thead>
+                          <tr>
+                            <th>Tahun</th>
+                            <th>Nama Desa</th>
+                            <th>Kode Brg</th>
+                            <th>Nama Barang</th>
+                            <th>Kuantitas</th>
+                            <th>Satuan</th>
+                            <th>Harga Satuan</th>
+                            <th>Nilai</th>
+                            <th>Asal</th>
+                            <th>Actions</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <?php foreach ($query4 as $row) : ?>
+                            <tr>
+                              <td><?php echo $row->Tahun; ?></td>
+                              <td><?php echo $row->Nama_Desa; ?></td>
+                              <td><?php echo $row->KdRek5; ?></td>
+                              <td><?php echo $row->Nama_Rincian; ?></td>
+                              <td><?php echo $row->Kuantitas; ?></td>
+                              <td><?php echo $row->Satuan; ?></td>
+                              <td><?php echo $row->Hrg_Satuan; ?></td>
+                              <td><?php echo $row->Nilai; ?></td>
+                              <td><?php echo $row->AsalAset; ?></td>
+                              <td><?php echo anchor('pendataan_aset_desa/detail/'.$row->IdTran,'<div class="btn btn-success btn-sm" data-toggle="modal" data-target="#exampleModal"><i class="nav-icon fas fa-info-circle"></i></div>')?>
+                                  <?php echo anchor('pendataan_aset_desa/edit/'.$row->IdTran,'<div class="btn btn-danger btn-sm"><i class="nav-icon fas fa-edit"></i></div>')?>
+                                  <a onclick="return confirm('Anda Yakin Hapus ?')"<?php echo anchor('pendataan_aset_desa/hapus/'.$row->IdTran,'<div class="btn btn-danger btn-sm"><i class="nav-icon far fa-trash-alt"></i></div>') ?></td>
+                            </tr>
+                          <?php endforeach; ?>
+                        </tbody>
+                      </table>
                     </div>
                   </div>
                   <!-- /.tab-pane -->
                   <div class="tab-pane" id="asettetaplainnya">
                     <div class="box_header">
-                      <div class="pull-right">
-                        <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                        <i class="fas fa-plus-square"></i>Aset Tetap Lainnya</button>
+                        <div class="pull-right">
+                        <a href="<?=site_url('pendataan_aset_desa/add/asettetaplainnya')?>" button class="btn btn-primary">
+                            <i class="fas fa-plus-square"></i>Tambah Aset Tetap Lainnya</button></a>
+                        </div>
                       </div>
+                      <div class="box-body table-responsive">
+                      <table id="example5" class="table table-borderes table-striped">
+                        <thead>
+                          <tr>
+                            <th>Tahun</th>
+                            <th>Nama Desa</th>
+                            <th>Kode Brg</th>
+                            <th>Nama Barang</th>
+                            <th>Kuantitas</th>
+                            <th>Satuan</th>
+                            <th>Harga Satuan</th>
+                            <th>Nilai</th>
+                            <th>Asal</th>
+                            <th>Actions</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <?php foreach ($query5 as $row) : ?>
+                            <tr>
+                              <td><?php echo $row->Tahun; ?></td>
+                              <td><?php echo $row->Nama_Desa; ?></td>
+                              <td><?php echo $row->KdRek5; ?></td>
+                              <td><?php echo $row->Nama_Rincian; ?></td>
+                              <td><?php echo $row->Kuantitas; ?></td>
+                              <td><?php echo $row->Satuan; ?></td>
+                              <td><?php echo $row->Hrg_Satuan; ?></td>
+                              <td><?php echo $row->Nilai; ?></td>
+                              <td><?php echo $row->AsalAset; ?></td>
+                              <td><?php echo anchor('pendataan_aset_desa/detail/'.$row->IdTran,'<div class="btn btn-success btn-sm" data-toggle="modal" data-target="#exampleModal"><i class="nav-icon fas fa-info-circle"></i></div>')?>
+                                  <?php echo anchor('pendataan_aset_desa/edit/'.$row->IdTran,'<div class="btn btn-danger btn-sm"><i class="nav-icon fas fa-edit"></i></div>')?>
+                                  <a onclick="return confirm('Anda Yakin Hapus ?')"<?php echo anchor('pendataan_aset_desa/hapus/'.$row->IdTran,'<div class="btn btn-danger btn-sm"><i class="nav-icon far fa-trash-alt"></i></div>') ?></td>
+                            </tr>
+                          <?php endforeach; ?>
+                        </tbody>
+                      </table>
                     </div>
                   </div>
                   <!-- /.tab-pane -->
                   <div class="tab-pane" id="konstruksidalampekerjaan">
                     <div class="box_header">
-                      <div class="pull-right">
-                        <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                        <i class="fas fa-plus-square"></i>Konstruksi Dalam Pekerjaan</button>
+                          <div class="pull-right">
+                          <a href="<?=site_url('pendataan_aset_desa/add/konstruksidalampekerjaan')?>" button class="btn btn-primary">
+                              <i class="fas fa-plus-square"></i>Tambah Konstruksi Dalam Pekerjaan</button></a>
+                          </div>
+                        </div>
+                        <div class="box-body table-responsive">
+                        <table id="example6" class="table table-borderes table-striped">
+                          <thead>
+                            <tr>
+                              <th>Tahun</th>
+                              <th>Nama Desa</th>
+                              <th>Kode Brg</th>
+                              <th>Nama Barang</th>
+                              <th>Kuantitas</th>
+                              <th>Satuan</th>
+                              <th>Harga Satuan</th>
+                              <th>Nilai</th>
+                              <th>Asal</th>
+                              <th>Actions</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <?php foreach ($query6 as $row) : ?>
+                              <tr>
+                                <td><?php echo $row->Tahun; ?></td>
+                                <td><?php echo $row->Nama_Desa; ?></td>
+                                <td><?php echo $row->KdRek5; ?></td>
+                                <td><?php echo $row->Nama_Rincian; ?></td>
+                                <td><?php echo $row->Kuantitas; ?></td>
+                                <td><?php echo $row->Satuan; ?></td>
+                                <td><?php echo $row->Hrg_Satuan; ?></td>
+                                <td><?php echo $row->Nilai; ?></td>
+                                <td><?php echo $row->AsalAset; ?></td>
+                                <td><?php echo anchor('pendataan_aset_desa/detail/'.$row->IdTran,'<div class="btn btn-success btn-sm" data-toggle="modal" data-target="#exampleModal"><i class="nav-icon fas fa-info-circle"></i></div>')?>
+                                    <?php echo anchor('pendataan_aset_desa/edit/'.$row->IdTran,'<div class="btn btn-danger btn-sm"><i class="nav-icon fas fa-edit"></i></div>')?>
+                                    <a onclick="return confirm('Anda Yakin Hapus ?')"<?php echo anchor('pendataan_aset_desa/hapus/'.$row->IdTran,'<div class="btn btn-danger btn-sm"><i class="nav-icon far fa-trash-alt"></i></div>') ?></td>
+                              </tr>
+                            <?php endforeach; ?>
+                          </tbody>
+                        </table>
                       </div>
-                    </div>
                   </div>
                   <!-- /.tab-pane -->
                   <div class="tab-pane" id="asettidakberwujud">
-                    <div class="box_header">
-                      <div class="pull-right">
-                        <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                        <i class="fas fa-plus-square"></i>Aset Tidak Berwujud</button>
+                  <div class="box_header">
+                          <div class="pull-right">
+                          <a href="<?=site_url('pendataan_aset_desa/add/asettidakberwujud')?>" button class="btn btn-primary">
+                              <i class="fas fa-plus-square"></i>Tambah Aset Tidak Berwujud</button></a>
+                          </div>
+                        </div>
+                        <div class="box-body table-responsive">
+                        <table id="example7" class="table table-borderes table-striped">
+                          <thead>
+                            <tr>
+                              <th>Tahun</th>
+                              <th>Nama Desa</th>
+                              <th>Kode Brg</th>
+                              <th>Nama Barang</th>
+                              <th>Kuantitas</th>
+                              <th>Satuan</th>
+                              <th>Harga Satuan</th>
+                              <th>Nilai</th>
+                              <th>Asal</th>
+                              <th>Actions</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <?php foreach ($query7 as $row) : ?>
+                              <tr>
+                                <td><?php echo $row->Tahun; ?></td>
+                                <td><?php echo $row->Nama_Desa; ?></td>
+                                <td><?php echo $row->KdRek5; ?></td>
+                                <td><?php echo $row->Nama_Rincian; ?></td>
+                                <td><?php echo $row->Kuantitas; ?></td>
+                                <td><?php echo $row->Satuan; ?></td>
+                                <td><?php echo $row->Hrg_Satuan; ?></td>
+                                <td><?php echo $row->Nilai; ?></td>
+                                <td><?php echo $row->AsalAset; ?></td>
+                                <td><?php echo anchor('pendataan_aset_desa/detail/'.$row->IdTran,'<div class="btn btn-success btn-sm" data-toggle="modal" data-target="#exampleModal"><i class="nav-icon fas fa-info-circle"></i></div>')?>
+                                    <?php echo anchor('pendataan_aset_desa/edit/'.$row->IdTran,'<div class="btn btn-danger btn-sm"><i class="nav-icon fas fa-edit"></i></div>')?>
+                                    <a onclick="return confirm('Anda Yakin Hapus ?')"<?php echo anchor('pendataan_aset_desa/hapus/'.$row->IdTran,'<div class="btn btn-danger btn-sm"><i class="nav-icon far fa-trash-alt"></i></div>') ?></td>
+                              </tr>
+                            <?php endforeach; ?>
+                          </tbody>
+                        </table>
                       </div>
-                    </div>
                   </div>
                   <!-- /.tab-pane -->
                   

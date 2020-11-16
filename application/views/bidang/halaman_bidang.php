@@ -77,18 +77,8 @@
             <div class="form-group">
                 <label>Nama Bidang</label><input type="text" name="Nama_Kelompok" class="form-control">
             </div>
-			<!--<div class="form-group">
-                        <label>Select</label>
-                        <select class="form-control">
-                          <option>option 1</option>
-                          <option>option 2</option>
-                          <option>option 3</option>
-                          <option>option 4</option>
-                          <option>option 5</option>
-                        </select>
-                </div>-->
 			<div class="form-group">
-                <label>Nama Golongan</label><input type="text" name="KdRek1" class="form-control">
+                <label>Nama Golongan</label><input type="text" name="KdRek1_FK" class="form-control">
             </div>
             <button type="reset" class="btn btn-danger" data-dismiss="modal">Reset</button>
             <button type="submit" class="btn btn-primary">Simpan</button>

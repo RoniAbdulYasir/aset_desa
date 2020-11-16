@@ -73,18 +73,8 @@
             <div class="form-group">
                 <label>Nama Sub Kelompok</label><input type="text" name="Nama_Obyek" class="form-control">
             </div>
-			<!--<div class="form-group">
-                        <label>Select</label>
-                        <select class="form-control">
-                          <option>option 1</option>
-                          <option>option 2</option>
-                          <option>option 3</option>
-                          <option>option 4</option>
-                          <option>option 5</option>
-                        </select>
-                </div>-->
 			<div class="form-group">
-                <label>Nama Kelompok</label><input type="text" name="KdRek3" class="form-control">
+                <label>Nama Kelompok</label><input type="text" name="KdRek3_FK" class="form-control">
             </div>
             <button type="reset" class="btn btn-danger" data-dismiss="modal">Reset</button>
             <button type="submit" class="btn btn-primary">Simpan</button>

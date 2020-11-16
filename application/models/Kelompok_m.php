@@ -6,7 +6,7 @@ class Kelompok_m extends CI_Model {
     public function get(){
 
 		$this->db->from('rek_asset3');
-    $this->db->join('rek_asset2', 'rek_asset2.KdRek2 = rek_asset3.KdRek2');
+    $this->db->join('rek_asset2', 'rek_asset2.KdRek2 = rek_asset3.KdRek2_FK');
     $query = $this->db->get();
 		return $query->result() ;
         
@@ -20,7 +20,7 @@ class Kelompok_m extends CI_Model {
       //$query = $this->db->get_where('rek_asset2', array('KdRek2' => $KdRek2))->row();
       $this->db->select('*');
       $this->db->from('rek_asset3');
-      $this->db->join('rek_asset2','rek_asset2.KdRek2 = rek_asset3.KdRek2');
+      $this->db->join('rek_asset2','rek_asset2.KdRek2 = rek_asset3.KdRek2_FK');
       $this->db->where('rek_asset3.KdRek3',$KdRek3);
       $query = $this->db->get()->row();
       return $query;

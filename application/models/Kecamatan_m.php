@@ -3,15 +3,32 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Kecamatan_m extends CI_Model {
 
-    public function get(){
-
-		$query =  $this->db->get('ref_kecamatan'); 
-		return $query->result() ;
+    public function get($Kd_Kec = null){
+      $this->db->from('ref_kecamatan');
+      if($Kd_Kec != null){
+        $this->db->where('Kd_Kec', $Kd_Kec);
+      }
+		$query =  $this->db->get(); 
+		return $query;
         
     }
 
-    public function input_data($data){
-      return $this->db->insert('ref_kecamatan', $data);
+    public function add($post){
+      $params = [
+        'Kd_Kec' => $post['Kd_Kec'],
+        'Nama_Kecamatan' => $post['Nama_Kecamatan'],
+      ];
+      $this->db->insert('ref_kecamatan', $params);
+    }
+
+    public function edit($post){
+      $params = [
+        'Kd_Kec' => $post['Kd_Kec'],
+        'Nama_Kecamatan' => $post['Nama_Kecamatan'],
+        'updated' => date('Y-m-d H:i:s')
+      ];
+      $this->db->where('Kd_Kec', $post['Kd_Kec']);
+      $this->db->update('ref_kecamatan', $params);
     }
 
     public function detail_data($Kd_Kec = NULL){
@@ -19,14 +36,6 @@ class Kecamatan_m extends CI_Model {
       return $query;
     }
 
-    public function edit_data($where,$table){
-      return $this->db->get_where($table,$where);
-    }
-
-    public function update_data($where,$data,$table){
-      $this->db->where($where);
-      $this->db->update($table,$data);
-    }
 
     public function hapus_data($Kd_Kec){
       $this->db->where('Kd_Kec', $Kd_Kec);

@@ -24,7 +24,6 @@ class User extends CI_Controller {
 		$Username = $this->input->post('Username');
 		$Password = $this->input->post('Password');
 		$Keterangan = $this->input->post('Keterangan');
-		$Kd_Kec = $this->input->post('Kd_Kec');
 		$Kd_Desa = $this->input->post('Kd_Desa');
 		
 
@@ -35,7 +34,6 @@ class User extends CI_Controller {
 			'Username' => $Username,
 			'Password' => $Password,
 			'Keterangan' => $Keterangan,
-			'Kd_Kec' => $Kd_Kec,
 			'Kd_Desa' => $Kd_Desa,
 			
             
@@ -61,7 +59,6 @@ class User extends CI_Controller {
 		$Username = $this->input->post('Username');
 		$Password = $this->input->post('Password');
 		$Keterangan = $this->input->post('Keterangan');
-		$Kd_Kec = $this->input->post('Kd_Kec');
 		$Kd_Desa = $this->input->post('Kd_Desa');
 		
 
@@ -72,7 +69,6 @@ class User extends CI_Controller {
 			'Username' => $Username,
 			'Password' => $Password,
 			'Keterangan' => $Keterangan,
-			'Kd_Kec' => $Kd_Kec,
 			'Kd_Desa' => $Kd_Desa,
         );
 

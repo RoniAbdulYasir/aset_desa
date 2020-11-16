@@ -27,12 +27,12 @@ class Bidang extends CI_Controller {
 	public function tambah_aksi(){
         $KdRek2 = $this->input->post('KdRek2');
 		$Nama_Kelompok = $this->input->post('Nama_Kelompok');
-		$KdRek1 = $this->input->post('KdRek1');
+		$KdRek1_FK = $this->input->post('KdRek1_FK');
 
         $data = array(
             'KdRek2' => $KdRek2,
 			'Nama_Kelompok' => $Nama_Kelompok,
-			'KdRek1' => $KdRek1
+			'KdRek1_FK' => $KdRek1_FK
             
 		);
 		$this->bidang_m->input_data($data, 'rek_asset2');
@@ -52,12 +52,12 @@ class Bidang extends CI_Controller {
 	public function update(){
         $KdRek2 = $this->input->post('KdRek2');
 		$Nama_Kelompok = $this->input->post('Nama_Kelompok');
-		$KdRek1 = $this->input->post('KdRek1');
+		$KdRek1_FK = $this->input->post('KdRek1_FK');
 
         $data = array(
             'KdRek2' => $KdRek2,
 			'Nama_Kelompok' => $Nama_Kelompok,
-			'KdRek1' => $KdRek1
+			'KdRek1_FK' => $KdRek1_FK
         );
 
         $where = array(

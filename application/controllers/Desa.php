@@ -5,8 +5,9 @@ class Desa extends CI_Controller {
 
 
 	function __construct(){
-		parent::__construct();
-		$this->load->model('desa_m');
+                parent::__construct();
+                check_not_login();
+		$this->load->model(['desa_m', 'kecamatan_m']);
 	}
 
 	public function index()
@@ -17,25 +18,37 @@ class Desa extends CI_Controller {
 		$this->template->load('halaman_template', 'desa/halaman_desa', $data);
 	}
 
-	public function tambah_aksi(){
-        $Kd_Desa = $this->input->post('Kd_Desa');
-		$Nama_Desa = $this->input->post('Nama_Desa');
-		$Kd_Kec = $this->input->post('Kd_Kec');
-		//$Kecamatan= $this->kecamatan_m->get();
-
-        $data = array(
-            'Kd_Desa' => $Kd_Desa,
-			'Nama_Desa' => $Nama_Desa,
-			'Kd_Kec' => $Kd_Kec,
-			//'Kecamatan' => $Kecamatan
-            
-		);
-		$this->desa_m->input_data($data, 'ref_desa');
-        if($this->db->affected_rows() > 0){
-                echo "<script>alert('Data Berhasil Disimpan');</script>";
+	public function add(){
+                $desa = new stdClass();
+                $desa->Kd_Desa = null;
+		$desa->Nama_Desa = null;
+                $desa->Kd_Kec = null;
                 
+                $kecamatan = $this->kecamatan_m->get();
+                $data = array(
+                        'page' => 'add',
+                        'row' => $desa,
+                        'kecamatan' => $kecamatan,
+                );
+                $this->template->load('halaman_template', 'desa/desa_form', $data);
+                
+        }
+        
+        public function process(){
+                $post = $this->input->post(null, TRUE);
+                if(isset($_POST['add'])){
+                        $this->desa_m->add($post);
+                }elseif(isset($_POST['edit'])){
+                        $this->desa_m->edit($post);
                 }
-                echo "<script>window.location='".site_url('desa')."';</script>";
+
+                if($this->db->affected_rows() > 0){
+                        echo "<script>alert('Data Berhasil Disimpan');</script>";
+                        
+                        }
+                        echo "<script>window.location='".site_url('desa')."';</script>";
+                
+                
 	}
 
 	public function detail($Kd_Desa){
@@ -46,35 +59,24 @@ class Desa extends CI_Controller {
 	}
 
 	public function edit($Kd_Desa){
-        $where = array('Kd_Desa' =>$Kd_Desa);
-        $data['desa'] = $this->desa_m->edit_data($where,'ref_desa')->result();
-        $this->template->load('halaman_template', 'desa/edit_desa', $data);
+                $query = $this->desa_m->get($Kd_Desa);
+                if($query->num_rows() > 0) {
+                        $desa = $query->row();
+                        $kecamatan = $this->kecamatan_m->get();
+                        $data = array(
+                                'page' => 'add',
+                                'row' => $desa,
+                                'kecamatan' => $kecamatan,
+                        );
+                $this->template->load('halaman_template', 'desa/desa_form', $data);
+                } else{
+                        echo "<script>alert('Data Tidak Ditemukan');";
+                        echo "window.location='".site_url('desa')."';</script>";
+                }
 	}
 	
-	public function update(){
-        $Kd_Desa = $this->input->post('Kd_Desa');
-		$Nama_Desa = $this->input->post('Nama_Desa');
-		$Kd_Kec = $this->input->post('Kd_Kec');
-
-        $data = array(
-            'Kd_Desa' => $Kd_Desa,
-			'Nama_Desa' => $Nama_Desa,
-			'Kd_Kec' => $Kd_Kec
-        );
-
-        $where = array(
-            'Kd_Desa' => $Kd_Desa
-		);
-		$this->desa_m->update_data($where,$data,'ref_desa');
-        if($this->db->affected_rows() > 0){
-                echo "<script>alert('Data Berhasil Diupdate');</script>";
-                
-                }
-                echo "<script>window.location='".site_url('desa')."';</script>";
-	}
-
+	
 	public function hapus ($Kd_Desa){
-        //$where = array ('KdRek1' => $KdRek1);
         $this->desa_m->hapus_data($Kd_Desa);
         if($this->db->affected_rows() > 0){
                 echo "<script>alert('Data Berhasil Dihapus');</script>";
