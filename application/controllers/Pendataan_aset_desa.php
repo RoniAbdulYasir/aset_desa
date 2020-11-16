@@ -95,6 +95,30 @@ class Pendataan_aset_desa extends CI_Controller {
 				echo "<script>window.location='".site_url('pendataan_aset_desa')."';</script>";
 		
 		
+	}
+
+	public function edit($IdTran){
+		$query = $this->pendataan_aset_desa_m->get($IdTran);
+		if($query->num_rows() > 0) {
+				$pendataan = $query->row();
+				$rincian_sub_kelompok = $this->rincian_sub_kelompok_m->get();
+				$asal_aset = $this->asal_aset_m->get();
+				$kondisi = $this->kondisi_aset_m->get();
+				$statusaset = $this->status_aset_m->get();
+				$data = array(
+						'page' => 'edit',
+						'row' => $pendataan,
+						'rincian_sub_kelompok' => $rincian_sub_kelompok,
+						'asal_aset' => $asal_aset,
+						'kondisi' => $kondisi,
+						'statusaset' => $statusaset,
+				);
+		$this->template->load('halaman_template', 'pendataan_aset_desa/pendataan_aset_desa_form', $data);
+		} else{
+				echo "<script>alert('Data Tidak Ditemukan');";
+				echo "window.location='".site_url('pendataan_aset_desa')."';</script>";
+		}
 }
 
+	
 }

@@ -64,7 +64,7 @@ class Desa extends CI_Controller {
                         $desa = $query->row();
                         $kecamatan = $this->kecamatan_m->get();
                         $data = array(
-                                'page' => 'add',
+                                'page' => 'edit',
                                 'row' => $desa,
                                 'kecamatan' => $kecamatan,
                         );

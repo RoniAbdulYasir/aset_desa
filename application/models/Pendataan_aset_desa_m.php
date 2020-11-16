@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Pendataan_aset_desa_m extends CI_Model {
 
-    public function get(){
+    public function get($IdTran = null){
 
         $Level = $this->session->userdata('Level'); // dapatkan Level user yg login
         $Kd_Desa = $this->session->userdata('Kd_Desa'); // dapatkan Desa user yg login
@@ -23,8 +23,12 @@ class Pendataan_aset_desa_m extends CI_Model {
         }else if ($Level==3){
           $this->db->where('Kd_Desa',$Kd_Desa);
         }
+
+        if($IdTran != null){
+          $this->db->where('IdTran', $IdTran);
+        }
         $query = $this->db->get();
-	    	return $query->result() ;
+	    	return $query;
         
     }
 
@@ -49,6 +53,31 @@ class Pendataan_aset_desa_m extends CI_Model {
         ];
         $this->db->insert('ta_dataaset', $params);
       }
+
+      public function edit($post){
+        $params = [
+          //'IdTran' => $post['IdTran'],
+          'Tahun' => $post['Tahun'],
+          'Kd_Desa_FK' => $post['Kd_Desa_FK'],
+          'KdRek5_FK' => $post['KdRek5_FK'],
+          'Id_AsalAset_FK' => $post['Id_AsalAset_FK'],
+          'Id_Kondisi_FK' => $post['Id_Kondisi_FK'],
+          'Id_StatusAset_FK' => $post['Id_StatusAset_FK'],
+          'Identitas_Barang1' => $post['Identitas_Barang1'],
+          'Identitas_Barang2' => $post['Identitas_Barang2'],
+          'Identitas_Barang3' => $post['Identitas_Barang3'],
+          'Kuantitas' => $post['Kuantitas'],
+          'Hrg_Satuan' => $post['Hrg_Satuan'],
+          'Nilai' => $post['Nilai'],
+          'Satuan' => $post['Satuan'],
+          'Tgl_Update' => date('Y-m-d H:i:s'),
+          'User_Update' => $this->session->userdata('Nama'),
+        ];
+        $this->db->where('IdTran', $post['IdTran']);
+        $this->db->update('ta_dataaset', $params);
+      }
+
+      
    
 	
 }

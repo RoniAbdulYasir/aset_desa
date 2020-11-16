@@ -32,20 +32,12 @@
             </div>
             <form action="<?=site_url('pendataan_aset_desa/process') ?>" method="post">
             <div class="card-body">
+              <input type="hidden" name="IdTran" value="<?=$row->IdTran?>" class="form-control" >
                 <div class="form-group">
                     <label>Tahun</label>
                     <input type="number" name="Tahun" value="<?=$row->Tahun?>" class="form-control" required>
                 </div>
-                <!--<div class="form-group">
-                    <label>Nama Desa</label>
-                    
-                    <select name="Kd_Desa_FK" class="form-control">
-                    <option value="">- Pilih Desa -</option>
-                    <?php foreach ($desa->result() as $key => $data ) : ?>
-                      <option value="<?=$data->Kd_Desa?>"<?=$data->Kd_Desa== $row->Kd_Desa_FK ? "selected" : null?>><?=$data->Nama_Desa?></option>
-                    <?php endforeach; ?>
-                    </select>
-                </div>-->
+                
                 <input type="hidden" name="Kd_Desa_FK" value="<?=$row->Kd_Desa_FK?>" class="form-control" >
                 <div class="form-group">
                     <label>Nama Barang</label>

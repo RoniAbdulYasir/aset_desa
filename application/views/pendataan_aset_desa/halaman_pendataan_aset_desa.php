@@ -59,7 +59,7 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <?php foreach ($query1 as $row) : ?>
+                        <?php foreach ($query1->result() as $row) : ?>
                           <tr>
                             <td><?php echo $row->Tahun; ?></td>
                             <td><?php echo $row->Nama_Desa; ?></td>
@@ -104,7 +104,7 @@
                           </tr>
                         </thead>
                         <tbody>
-                          <?php foreach ($query2 as $row) : ?>
+                          <?php foreach ($query2->result()  as $row) : ?>
                             <tr>
                               <td><?php echo $row->Tahun; ?></td>
                               <td><?php echo $row->Nama_Desa; ?></td>
@@ -149,7 +149,7 @@
                           </tr>
                         </thead>
                         <tbody>
-                          <?php foreach ($query3 as $row) : ?>
+                          <?php foreach ($query3->result() as $row) : ?>
                             <tr>
                               <td><?php echo $row->Tahun; ?></td>
                               <td><?php echo $row->Nama_Desa; ?></td>
@@ -194,7 +194,7 @@
                           </tr>
                         </thead>
                         <tbody>
-                          <?php foreach ($query4 as $row) : ?>
+                          <?php foreach ($query4->result() as $row) : ?>
                             <tr>
                               <td><?php echo $row->Tahun; ?></td>
                               <td><?php echo $row->Nama_Desa; ?></td>
@@ -239,7 +239,7 @@
                           </tr>
                         </thead>
                         <tbody>
-                          <?php foreach ($query5 as $row) : ?>
+                          <?php foreach ($query5->result() as $row) : ?>
                             <tr>
                               <td><?php echo $row->Tahun; ?></td>
                               <td><?php echo $row->Nama_Desa; ?></td>
@@ -284,7 +284,7 @@
                             </tr>
                           </thead>
                           <tbody>
-                            <?php foreach ($query6 as $row) : ?>
+                            <?php foreach ($query6->result() as $row) : ?>
                               <tr>
                                 <td><?php echo $row->Tahun; ?></td>
                                 <td><?php echo $row->Nama_Desa; ?></td>
@@ -329,7 +329,7 @@
                             </tr>
                           </thead>
                           <tbody>
-                            <?php foreach ($query7 as $row) : ?>
+                            <?php foreach ($query7->result() as $row) : ?>
                               <tr>
                                 <td><?php echo $row->Tahun; ?></td>
                                 <td><?php echo $row->Nama_Desa; ?></td>
