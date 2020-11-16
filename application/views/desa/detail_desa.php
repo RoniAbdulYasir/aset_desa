@@ -31,7 +31,7 @@
             </tr>
             <tr>
                 <th>Nama Kecamatan</th>
-                <td><?php echo $detail->Kd_Kec ?></td>
+                <td><?php echo $detail->Nama_Kecamatan ?></td>
             </tr>
         </table>
         <a href="<?php echo base_url('desa');?>" class="btn btn-primary">Kembali</a>

@@ -36,8 +36,12 @@ class Desa_m extends CI_Model {
     }
 
     public function detail_data($Kd_Desa = NULL){
-      $query = $this->db->get_where('ref_desa', array('Kd_Desa' => $Kd_Desa))->row();
-      return $query;
+      //$query = $this->db->get_where('ref_desa', array('Kd_Desa' => $Kd_Desa))->row();
+      $this->db->from('ref_desa');
+      $this->db->join('ref_kecamatan', 'ref_kecamatan.Kd_Kec = ref_desa.Kd_Kec');
+      $this->db->where(array('Kd_Desa' => $Kd_Desa));
+      $query =  $this->db->get(); 
+      return $query->row();
     }
 
 
