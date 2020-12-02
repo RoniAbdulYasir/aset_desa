@@ -34,7 +34,6 @@
             <th>Level</th>
             <th>Nama</th>
             <th>Username</th>
-						<th>Password</th>
             <th>Keterangan</th>
             <th>Nama Desa</th>
             <th>Nama Kecamatan</th>
@@ -48,7 +47,6 @@
               <td><?php echo $row->Level; ?></td>
               <td><?php echo $row->Nama; ?></td>
               <td><?php echo $row->Username; ?></td>
-							<td><?php echo $row->Password; ?></td>
               <td><?php echo $row->Keterangan; ?></td>
               <td><?php echo $row->Nama_Kecamatan; ?></td>
               <td><?php echo $row->Nama_Desa; ?></td>

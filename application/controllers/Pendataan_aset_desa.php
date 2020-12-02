@@ -6,7 +6,7 @@ class Pendataan_aset_desa extends CI_Controller {
 
 	function __construct(){
 		parent::__construct();
-		$this->load->model(['pendataan_aset_desa_m', 'desa_m', 'rincian_sub_kelompok_m', 'asal_aset_m', 'kondisi_aset_m', 'status_aset_m']);
+		$this->load->model(['pendataan_aset_desa_m', 'desa_m', 'rincian_sub_kelompok_m', 'asal_aset_m', 'kondisi_aset_m', 'status_aset_m', 'peraturan_desa_m']);
 	}
 
 	public function index()
@@ -14,29 +14,38 @@ class Pendataan_aset_desa extends CI_Controller {
         
 		//menampilkan views
 		$this->db->where('KdRek1',2);
+		$this->db->where('Hapus',null);
 		$data['query1'] = $this->pendataan_aset_desa_m->get();
 		$this->db->where('KdRek1',3);
+		$this->db->where('Hapus',null);
 		$data['query2'] = $this->pendataan_aset_desa_m->get();
 		$this->db->where('KdRek1',4);
+		$this->db->where('Hapus',null);
 		$data['query3'] = $this->pendataan_aset_desa_m->get();
 		$this->db->where('KdRek1',5);
+		$this->db->where('Hapus',null);
 		$data['query4'] = $this->pendataan_aset_desa_m->get();
 		$this->db->where('KdRek1',6);
+		$this->db->where('Hapus',null);
 		$data['query5'] = $this->pendataan_aset_desa_m->get();
 		$this->db->where('KdRek1',7);
+		$this->db->where('Hapus',null);
 		$data['query6'] = $this->pendataan_aset_desa_m->get();
 		$this->db->where('KdRek1',8);
+		$this->db->where('Hapus',null);
 		$data['query7'] = $this->pendataan_aset_desa_m->get();
 		$this->template->load('halaman_template', 'pendataan_aset_desa/halaman_pendataan_aset_desa', $data);
 	}
 	public function add($menu){		
 		$pendataan = new stdClass();
+		$pendataan->IdTran = null;
 		$pendataan->Tahun = null;
 		$pendataan->Kd_Desa_FK = $this->session->userdata('Kd_Desa');
 		$pendataan->KdRek5_FK = null;
 		$pendataan->Id_AsalAset_FK = null;
 		$pendataan->Id_Kondisi_FK = null;
 		$pendataan->Id_StatusAset_FK = null;
+		$pendataan->Id_Ref_Perdes_FK = null;
 		$pendataan->Identitas_Barang1 = null;
 		$pendataan->Identitas_Barang2 = null;
 		$pendataan->Identitas_Barang3 = null;
@@ -65,6 +74,7 @@ class Pendataan_aset_desa extends CI_Controller {
 		$asal_aset = $this->asal_aset_m->get();
 		$kondisi = $this->kondisi_aset_m->get();
 		$statusaset = $this->status_aset_m->get();
+		$peraturandesa = $this->peraturan_desa_m->get();
 		
 		$data = array(
 				'page' => 'add',
@@ -74,6 +84,7 @@ class Pendataan_aset_desa extends CI_Controller {
 				'asal_aset' => $asal_aset,
 				'kondisi' => $kondisi,
 				'statusaset' => $statusaset,
+				'peraturandesa' => $peraturandesa,
 		);
 		
 		$this->template->load('halaman_template', 'pendataan_aset_desa/pendataan_aset_desa_form', $data);
@@ -105,6 +116,7 @@ class Pendataan_aset_desa extends CI_Controller {
 				$asal_aset = $this->asal_aset_m->get();
 				$kondisi = $this->kondisi_aset_m->get();
 				$statusaset = $this->status_aset_m->get();
+				$peraturandesa = $this->peraturan_desa_m->get();
 				$data = array(
 						'page' => 'edit',
 						'row' => $pendataan,
@@ -112,13 +124,31 @@ class Pendataan_aset_desa extends CI_Controller {
 						'asal_aset' => $asal_aset,
 						'kondisi' => $kondisi,
 						'statusaset' => $statusaset,
+						'peraturandesa' => $peraturandesa,
 				);
 		$this->template->load('halaman_template', 'pendataan_aset_desa/pendataan_aset_desa_form', $data);
 		} else{
 				echo "<script>alert('Data Tidak Ditemukan');";
 				echo "window.location='".site_url('pendataan_aset_desa')."';</script>";
 		}
-}
+	}
+
+	public function detail($IdTran){
+        $this->load->model('pendataan_aset_desa_m');
+        $detail = $this->pendataan_aset_desa_m->detail_data($IdTran);
+        $data['detail'] = $detail;
+        $this->template->load('halaman_template', 'pendataan_aset_desa/detail_aset_desa', $data);
+	}
+
+	public function hapus ($IdTran){
+        
+        $this->pendataan_aset_desa_m->hapus_data($IdTran);
+        if($this->db->affected_rows() > 0){
+                echo "<script>alert('Data Berhasil Dihapus');</script>";
+                
+                }
+                echo "<script>window.location='".site_url('pendataan_aset_desa')."';</script>";
+	}
 
 	
 }

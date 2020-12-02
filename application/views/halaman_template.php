@@ -35,10 +35,7 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="<?=base_url()?>assets/index3.html" class="nav-link">Home</a>
-      </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Contact</a>
+        <a href="<?=site_url('dashboard')?>" class="nav-link">Home</a>
       </li>
     </ul>
 
@@ -77,7 +74,7 @@
 
                 <p>
                 <?=$this->fungsi->user_login()->Nama?> - <?=$this->fungsi->user_login()->Keterangan?>
-                  <small><?=$this->fungsi->user_login()->Nama_Desa?> - <?=$this->fungsi->user_login()->Nama_Kecamatan?></small>
+                <small><?php if($this->session->userdata('Level') == 3) { ?>	<?=$this->fungsi->user_login()->Nama_Desa?> - <?php } ?><?=$this->fungsi->user_login()->Nama_Kecamatan?></small>
                 </p>
               </li>
               <!-- Menu Footer-->
@@ -149,7 +146,7 @@
                 <p>Pendataan Aset Desa</p>
               </a>
            </li>
-            <li class="nav-item">
+            <!--<li class="nav-item">
                 <a href="<?=site_url('riwayat_aset_desa')?>" <?=$this->uri->segment(1) == 'riwayat_aset_desa' ? 'class=" nav-link active"' : 'class="nav-link"'?>>
                 <i class="nav-icon fas fa-history"></i>
                   <p>Riwayat Aset Desa</p>
@@ -163,7 +160,7 @@
                     Laporan Aset Desa
                   </p>
                 </a>
-            </li>
+            </li>-->
             <!--<li class="nav-item ">
                 <a href="<?=site_url('asal_aset')?>" <?=$this->uri->segment(1) == 'asal_aset'  ? 'class=" nav-link active"' : 'class="nav-link"'?>>
                 <i class="nav-icon far fa-file"></i>
@@ -261,7 +258,23 @@
             </ul>
           </li>
           <?php } ?> 
-          
+
+          <?php if($this->session->userdata('Level') == 1) { ?>
+          <!--<li class="nav-header">SETTINGS</li> -->     
+          <li class="nav-item">
+            <a href="<?=site_url('peraturan_desa')?>" <?=$this->uri->segment(1) == 'peraturan_desa'  ? 'class=" nav-link active"' : 'class="nav-link"'?>>
+            <i class="nav-icon fas fa-file"></i>
+              <p>Peraturan Desa</p>
+            </a>
+          </li>
+          <?php }else if($this->session->userdata('Level') == 3){ ?>
+            <li class="nav-item">
+            <a href="<?=site_url('peraturan_desa')?>" <?=$this->uri->segment(1) == 'peraturan_desa'  ? 'class=" nav-link active"' : 'class="nav-link"'?>>
+            <i class="nav-icon fas fa-file"></i>
+              <p>Peraturan Desa</p>
+            </a>
+          </li>
+          <?php } ?>  
           
           <?php if($this->session->userdata('Level') == 1) { ?>
           <li class="nav-header">SETTINGS</li>      
@@ -270,9 +283,8 @@
             <i class="nav-icon fas fa-user"></i>
               <p>User</p>
             </a>
-          </li>
-          <?php } ?>        
-          
+          </li>        
+          <?php } ?> 
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
@@ -384,6 +396,11 @@
     });
 
   });
+  //In your Javascript (external .js resource or <script> tag)
+$(document).ready(function() {
+    $('.js-example-basic-single').select2();
+});
+</script>
 </script>
 </body>
 </html>

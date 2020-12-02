@@ -32,9 +32,10 @@
             </div>
             <form action="<?=site_url('pendataan_aset_desa/process') ?>" method="post">
             <div class="card-body">
-              <input type="hidden" name="IdTran" value="<?=$row->IdTran?>" class="form-control" >
+              
                 <div class="form-group">
                     <label>Tahun</label>
+                    <input type="hidden" name="IdTran" value="<?=$row->IdTran?>" >
                     <input type="number" name="Tahun" value="<?=$row->Tahun?>" class="form-control" required>
                 </div>
                 
@@ -42,7 +43,7 @@
                 <div class="form-group">
                     <label>Nama Barang</label>
                     
-                    <select name="KdRek5_FK" class="form-control ">
+                    <select name="KdRek5_FK" class="form-control " class="js-example-basic-single">
                     <option value="">- Pilih Nama Barang -</option>
                     <?php foreach ($rincian_sub_kelompok as $key => $data ) : ?>
                       <option value="<?=$data->KdRek5?>"<?=$data->KdRek5 == $row->KdRek5_FK ? "selected" : null?>><?=$data->Nama_Rincian?></option>
@@ -81,7 +82,7 @@
                 </div>
                 <div class="form-group">
                     <label>Identitas Barang 1</label>
-                    <input type="text" name="Identitas_Barang1" value="<?=$row->Identitas_Barang1?>" class="form-control" required>
+                    <input type="text" name="Identitas_Barang1" value="<?=$row->Identitas_Barang1?>" class="form-control" >
                 </div>
                 <div class="form-group">
                     <label>Identitas Barang 2</label>
@@ -93,19 +94,29 @@
                 </div>
                 <div class="form-group">
                     <label>Kuantitas</label>
-                    <input type="text" name="Kuantitas" value="<?=$row->Kuantitas?>" class="form-control" required>
+                    <input type="text" name="Kuantitas" value="<?=$row->Kuantitas?>" class="form-control" >
                 </div>
                 <div class="form-group">
                     <label>Harga Satuan</label>
-                    <input type="text" name="Hrg_Satuan" value="<?=$row->Hrg_Satuan?>" class="form-control" required>
+                    <input type="text" name="Hrg_Satuan" value="<?=$row->Hrg_Satuan?>" class="form-control" >
                 </div>
                 <div class="form-group">
                     <label>Nilai</label>
-                    <input type="text" name="Nilai" value="<?=$row->Nilai?>" class="form-control" required>
+                    <input type="text" name="Nilai" value="<?=$row->Nilai?>" class="form-control" >
                 </div>
                 <div class="form-group">
                     <label>Satuan</label>
-                    <input type="text" name="Satuan" value="<?=$row->Satuan?>" class="form-control" required>
+                    <input type="text" name="Satuan" value="<?=$row->Satuan?>" class="form-control" >
+                </div>
+                <div class="form-group">
+                    <label>Peraturan Desa</label>
+                    
+                    <select name="Id_Ref_Perdes_FK" class="form-control ">
+                    <option value="">- Pilih Peraturan Desa -</option>
+                    <?php foreach ($peraturandesa->result() as $key => $data ) : ?>
+                      <option value="<?=$data->Id_Ref_Perdes?>"<?=$data->Id_Ref_Perdes == $row->Id_Ref_Perdes_FK ? "selected" : null?>><?=$data->No_Perdes?>/<?=$data->Uraian_Perdes?></option>
+                    <?php endforeach; ?>
+                    </select>
                 </div>
               
             </div>
@@ -128,10 +139,6 @@
 </section>
 <!-- /.content -->
 <script>
-//In your Javascript (external .js resource or <script> tag)
-$(document).ready(function() {
-    $('.js-example-basic-single').select2();
-});
-</script>
+
 
 
